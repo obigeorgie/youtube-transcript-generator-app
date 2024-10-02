@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Transcript Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-2xl font-bold">YouTube Transcript Generator</h1>
+    </header>
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <form id="transcriptForm" class="mb-6">
+                <div class="mb-4">
+                    <label for="videoUrl" class="block text-gray-700 font-bold mb-2">YouTube Video URL:</label>
+                    <input type="text" id="videoUrl" name="videoUrl" required
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                    Get Transcript
+                </button>
+            </form>
+            
+            <div id="result" class="hidden">
+                <h2 class="text-xl font-bold mb-2">Transcript:</h2>
+                <div id="transcriptContent" class="bg-gray-100 p-4 rounded-md mb-4 max-h-96 overflow-y-auto"></div>
+                <button id="copyButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    Copy to Clipboard
+                </button>
+            </div>
+            
+            <div id="error" class="hidden text-red-500 font-bold"></div>
+        </div>
+    </main>
+    
+    <footer class="bg-gray-200 text-center p-4">
+        <p>&copy; 2023 YouTube Transcript Generator. All rights reserved.</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
